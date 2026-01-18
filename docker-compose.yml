@@ -1,0 +1,15 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4.2.2
+    container_name: rabbitmq-4.2.2-cnt
+    ports:
+      - "5672:5672"
+    volumes:
+      - ./data:/var/lib/rabbitmq
+      - ./log:/var/log/rabbitmq
+    networks:
+      - sandbox-net
+
+networks:
+  sandbox-net:
+    driver: bridge
